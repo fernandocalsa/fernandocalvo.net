@@ -1,0 +1,34 @@
+---
+layout: default
+---
+
+<div class="catalogue">
+  {% for post in paginator.posts %}
+    <a href="{{ post.url | prepend: site.baseurl }}" class="catalogue-item">
+      {{ site.baseurl }}
+      <div>
+        <time datetime="{{ post.date }}" class="catalogue-time">{{ post.date | date: "%B %d, %Y" }}</time>
+        <h2 class="catalogue-title">{{ post.title }}</h2>
+        <div class="catalogue-line"></div>
+
+        <p>
+          {{ post.content | strip_html | truncatewords: 30 }}
+        </p>
+
+      </div>
+    </a>
+  {% endfor %}
+</div>
+
+{% if paginator.total_pages > 1 %}
+<div class="pagination">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}" class="left arrow">&#8592;</a>
+  {% endif %}
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | prepend: site.baseurl }}" class="right arrow">&#8594;</a>
+  {% endif %}
+
+  <span>{{ paginator.page }}</span>
+</div>
+{% endif %}
