@@ -2,13 +2,14 @@
 
 body, html {
     font-family: 'Source Serif Pro', serif;
+    font-size: 15px;
     height: 100%;
     margin: 0;
     background: rgba(0,0,0,1);
     color: #868686;
 }
 h1 {
-    font-size: 2em;
+    font-size: 2.3rem;
     color: #efefef;
 }
 
@@ -31,15 +32,25 @@ h1 {
 
 .rrss {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 .rrss .item {
     color: #f2f2f2;
     text-decoration: none;
-    margin: 0 10px
 }
 .rrss .item:hover {
     cursor: pointer;
+    text-decoration: underline;
+}
+
+.latestBlog {
+    text-align: left;
+    margin-top: 35px;
+    color: #efefef;
+}
+
+.latestBlog a {
+    color: #efefef;
     text-decoration: underline;
 }
 
