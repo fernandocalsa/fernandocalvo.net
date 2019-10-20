@@ -196,4 +196,6 @@ save() {
 
 This approach can be used not only for models but also for many other functions that need access to the context, for example, a logger function that needs to log the request id.
 
+You can see the repository with all the code and a few more endpoints [here](https://github.com/fernandocalsa/express-context)
+
 Thanks for reading this post, and please, let me know in the comments what do you think, or if you found a better approach.
