@@ -1,8 +1,10 @@
 ---
 layout: post
 title: Sharing the context with models in Express
+image: /assets/posts/context.jpg
+description: How to share the request context with models in Express, so the model can use it to filter the data for the current user.
 ---
-Let's imagine that you are building a SaaS platform where companies can manage information about their projects. You need to expose an API where users can see the projects from their company, but your clients don't want to share their projects information with anyone else that is not employees.
+Let's imagine that you are building a SaaS platform where companies can manage information about their projects. You need to expose an API where users can see the projects from their company, but your clients don't want to share their projects information with anyone else that is not an employee.
 
 So you start creating a new Express app. First of all, you create a middleware to authenticate the user.
 ```js
@@ -24,9 +26,10 @@ This middleware just verifies the token, extracts the `userId` from it, gets the
 Now that we have our API secured, let's create the first endpoints:
 
 ```js
-const projectsRouter = express.Router();
-projectsRouter.get("/", projectsController.getProjects);
-projectsRouter.post("/", projectsController.postProject);
+router
+  .route("/projects")
+  .get(projectsController.getProjects)
+  .post(projectsController.postProject);
 ```
 
 Next step, we need to create our controller :)
